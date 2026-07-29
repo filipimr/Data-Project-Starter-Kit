@@ -1,106 +1,113 @@
 # CLAUDE.md
 
-Guidance for Claude Code (claude.ai/code) working in this repository.
+Guia para o Claude Code (claude.ai/code) trabalhar neste repositório.
 
-## What this is
+## O que é este repositório
 
-- Public template repo for bootstrapping Python data projects (ETL, ML,
-  API, dashboard) with uv, Ruff, pytest, MkDocs, pre-commit, and CI
-  pre-wired.
-- Read `docs/guia-boas-praticas.md` for the *why* behind every convention
-  here, with links to each tool's official docs.
-- `app/pipeline/{extract,transform,load}.py` are placeholders
-  (`raise NotImplementedError` + TODO). Don't implement them
-  speculatively — this repo IS the template, not a finished pipeline.
+- Template público para começar projetos de dados em Python (ETL, ML, API,
+  dashboard) já com uv, Ruff, pytest, MkDocs, pre-commit e CI prontos.
+- Leia `docs/guia-boas-praticas.md` para entender o *porquê* de cada
+  convenção abaixo, com links para a documentação oficial de cada
+  ferramenta.
+- `app/pipeline/{extract,transform,load}.py` são placeholders
+  (`raise NotImplementedError` + TODO). Não implemente por especulação —
+  este repositório É o template, não um pipeline pronto.
 
-## Commands
+## Comandos
 
 ```bash
-uv sync                        # install deps
+uv sync                        # instala as dependências
 uv run task format              # ruff check --fix . && ruff format .
-uv run task lint                # ruff check . && ruff format --check .
-uv run task test                # pytest -v
-uv run task docs                # mkdocs serve
-uv run mkdocs build --strict    # verify docs build clean
+uv run task lint                 # ruff check . && ruff format --check .
+uv run task test                 # pytest -v
+uv run task docs                 # mkdocs serve
+uv run mkdocs build --strict     # confere se os docs buildam sem erro
 uv run pre-commit run --all-files
 ```
 
-Single test: `uv run pytest tests/test_transform.py -k test_name`.
+Teste único: `uv run pytest tests/test_transform.py -k nome_do_teste`.
 
-`uv run python app/main.py` raises `NotImplementedError` by design. Don't
-"fix" that — it's the template's placeholder state.
+`uv run python app/main.py` levanta `NotImplementedError` de propósito.
+Não "conserte" isso — é o estado de placeholder do template.
 
-## Architecture
+## Arquitetura
 
-- `app/` imports as a plain top-level package: `[tool.uv] package = false`
-  in `pyproject.toml`, no wheel build, pytest rootdir insertion resolves
-  `app.*` imports. Don't reintroduce `[build-system]`/hatchling without a
-  reason — it broke `uv sync` before (required a README at build time).
-- `docs/pipeline.md` renders live from `app/pipeline` docstrings via
-  mkdocstrings. Edit the docstring, not the doc page.
-- `mkdocs.yml`'s `!!python/name:` tag breaks pre-commit's `check-yaml`
-  safe loader — it's excluded from that hook on purpose, not a bug.
-- Ruff: `select = ["E","F","I","D","UP","B","S"]`, Google docstrings.
-  `tests/*` is exempt from `D`/`S101`.
+- `app/` é importado como pacote de nível superior comum:
+  `[tool.uv] package = false` no `pyproject.toml`, sem build de wheel, o
+  `app.*` resolve via inserção de rootdir do pytest. Não reintroduza
+  `[build-system]`/hatchling sem motivo — já quebrou o `uv sync` antes
+  (exigia um README no momento do build).
+- `docs/pipeline.md` é renderizado ao vivo a partir das docstrings de
+  `app/pipeline` via mkdocstrings. Edite a docstring, não a página de doc.
+- A tag `!!python/name:` do `mkdocs.yml` quebra o parser seguro do hook
+  `check-yaml` do pre-commit — esse arquivo é excluído do hook de
+  propósito, não é um bug.
+- Ruff: `select = ["E","F","I","D","UP","B","S"]`, docstrings estilo
+  Google. `tests/*` é isento de `D`/`S101`.
 
-## Git workflow
+## Fluxo de Git
 
-- Never run `git commit --no-verify`. Fix what the hook flags instead.
-- One commit/PR per concern, in adoption order: environment → code →
-  tests → lint/tasks → docs → hooks/CI. No "fix everything" commits.
-- Filling in a placeholder: replace one `TODO` and un-skip its matching
-  test in the same change. Don't rewrite the whole pipeline at once.
+- Nunca use `git commit --no-verify`. Corrija o que o hook apontar.
+- Um commit/PR por assunto, na ordem de adoção: ambiente → código → testes
+  → lint/tasks → docs → hooks/CI. Nada de commit "arruma tudo".
+- Ao preencher um placeholder: troque um `TODO` por vez e habilite o teste
+  correspondente na mesma mudança. Não reescreva o pipeline inteiro de uma vez.
 
-## Code style
+## Estilo de código
 
-- Functions: 4-20 lines. Split if longer.
-- Files: under 500 lines. Split by responsibility.
-- One thing per function, one responsibility per module (SRP).
-- Names: specific and unique. Avoid `data`, `handler`, `Manager`.
-  Prefer names that return <5 grep hits in the codebase.
-- Types: explicit. No `any`, no `Dict`, no untyped functions.
-- No code duplication. Extract shared logic into a function/module.
-- Early returns over nested ifs. Max 2 levels of indentation.
-- Exception messages must include the offending value and expected shape.
+- Funções: 4-20 linhas. Quebre se passar disso.
+- Arquivos: até 500 linhas. Divida por responsabilidade.
+- Uma coisa por função, uma responsabilidade por módulo (SRP).
+- Nomes: específicos e únicos. Evite `data`, `handler`, `Manager`.
+  Prefira nomes que retornem menos de 5 ocorrências no grep do repositório.
+- Tipos: explícitos. Nada de `any`, `Dict` genérico ou função sem tipo.
+- Sem duplicação de código. Extraia lógica compartilhada para uma
+  função/módulo.
+- Early return em vez de ifs aninhados. No máximo 2 níveis de indentação.
+- Mensagens de exceção devem incluir o valor problemático e o formato
+  esperado.
 
-## Comments
+## Comentários
 
-- Keep your own comments. Don't strip them on refactor — they carry
-  intent and provenance.
-- Write WHY, not WHAT. Skip `// increment counter` above `i++`.
-- Docstrings on public functions: intent + one usage example.
-- Reference issue numbers / commit SHAs when a line exists because
-  of a specific bug or upstream constraint.
+- Preserve os comentários existentes. Não os remova ao refatorar — eles
+  carregam intenção e proveniência.
+- Escreva o PORQUÊ, não o QUÊ. Não comente `// incrementa o contador`
+  acima de `i++`.
+- Docstrings em funções públicas: intenção + um exemplo de uso.
+- Referencie números de issue / SHAs de commit quando uma linha existe por
+  causa de um bug específico ou de uma restrição externa.
 
-## Tests
+## Testes
 
-- Tests run with a single command: `uv run pytest -v` (or
+- Rode os testes com um único comando: `uv run pytest -v` (ou
   `uv run task test`).
-- Every new function gets a test. Bug fixes get a regression test.
-- Mock external I/O (API, DB, filesystem) with named fake classes,
-  not inline stubs.
-- Tests must be F.I.R.S.T: fast, independent, repeatable,
-  self-validating, timely.
+- Toda função nova ganha um teste. Todo bug corrigido ganha um teste de
+  regressão.
+- Mocke I/O externo (API, banco, sistema de arquivos) com classes fake
+  nomeadas, não com stubs inline.
+- Testes devem seguir F.I.R.S.T: rápidos, independentes, repetíveis,
+  auto-verificáveis e no tempo certo.
 
-## Dependencies
+## Dependências
 
-- Inject dependencies through constructor/parameter, not global/import.
-- Wrap third-party libs behind a thin interface owned by this project.
+- Injete dependências via construtor/parâmetro, não via global/import.
+- Encapsule bibliotecas de terceiros atrás de uma interface fina de
+  propriedade deste projeto.
 
-## Structure
+## Estrutura
 
-- `app/` holds all code, `tests/` mirrors it, `docs/` is MkDocs. If a
-  framework (Django, FastAPI, Next.js...) sits on top, follow its own
-  convention inside `app/`.
-- Prefer small focused modules over god files.
-- Predictable paths: controller/model/view, src/lib/test, etc.
+- `app/` concentra todo o código, `tests/` espelha essa estrutura, `docs/`
+  é o MkDocs. Se um framework (Django, FastAPI, Next.js...) entrar em
+  cena, siga a convenção dele dentro de `app/`.
+- Prefira módulos pequenos e focados a arquivos "faz-tudo".
+- Caminhos previsíveis: controller/model/view, src/lib/test, etc.
 
-## Formatting
+## Formatação
 
-- Use the project formatter: `uv run ruff format .`. Don't discuss style
-  beyond that.
+- Use o formatador do projeto: `uv run ruff format .`. Não discuta estilo
+  além disso.
 
 ## Logging
 
-- Structured JSON when logging for debugging / observability.
-- Plain text only for user-facing CLI output.
+- JSON estruturado ao logar para debug/observabilidade.
+- Texto puro apenas para saída de CLI voltada ao usuário.
