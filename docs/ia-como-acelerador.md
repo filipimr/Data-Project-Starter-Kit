@@ -1,7 +1,8 @@
 # IA como acelerador
 
-Este template foi feito para ser usado junto com o [Claude Code](https://claude.com/claude-code),
-a ferramenta de linha de comando da Anthropic. O arquivo `CLAUDE.md` na raiz
+Este template foi feito para ser usado junto com o
+[Claude Code](https://docs.claude.com/en/docs/claude-code/overview), a
+ferramenta de linha de comando da Anthropic. O arquivo `CLAUDE.md` na raiz
 do repositório já registra as convenções do projeto (uv, Ruff, pytest,
 padrão de commit, "nunca use `--no-verify`"), então o agente não precisa
 redescobrir isso a cada sessão.
@@ -10,6 +11,11 @@ Abaixo, prompts prontos para avançar em cada parte ainda pendente do
 template (os `TODO` deixados em `app/pipeline/`) ou para adaptá-lo a um
 projeto real. Peça uma coisa de cada vez, em Plan Mode quando a mudança for
 grande, e revise o diff antes de aceitar.
+
+Se em vez de partir deste template você estiver aplicando estas práticas a
+um repositório que já existe, veja a seção "Retrofit" no final do
+[Guia de boas práticas](guia-boas-praticas.md) — ela cobre o fluxo de
+diagnóstico, `CLAUDE.md` e migração incremental por PR.
 
 ## Adaptar o pipeline a um caso real
 

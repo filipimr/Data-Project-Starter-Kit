@@ -10,11 +10,10 @@ pipelines, APIs, dashboards) with good practices already wired in:
 reproducible environment, modular code, tests, lint/format standards, docs
 generated from docstrings, pre-commit hooks, and CI.
 
-The template was built from the reference guide
-`estrutura-projeto-dados-claude.docx` (kept in the repo root, in
-Portuguese) — that document explains the *why* behind every convention
-below. The user-facing quickstart lives in `README.md`; this file is about
-how an agent should operate in this specific repo.
+The template was built from `docs/guia-boas-praticas.md` (Portuguese) —
+that page explains the *why* behind every convention below, with links to
+each tool's official docs. The user-facing quickstart lives in `README.md`;
+this file is about how an agent should operate in this specific repo.
 
 `app/pipeline/{extract,transform,load}.py` are intentionally generic
 placeholders (`raise NotImplementedError` + TODO comments) — this repo is
@@ -54,7 +53,10 @@ tests/                 # one test file per pipeline module, AAA-style,
 docs/                   # MkDocs Material site; pipeline.md pulls docs
                         # straight from the app/pipeline docstrings via
                         # mkdocstrings — keep docstrings accurate, don't
-                        # hand-write duplicate API docs
+                        # hand-write duplicate API docs.
+                        # guia-boas-praticas.md is the full uv/Ruff-focused
+                        # practices guide (source of truth for "why");
+                        # ia-como-acelerador.md is Claude Code prompts.
 data/input/, data/output/   # gitignored except .gitkeep; example I/O only
 ```
 

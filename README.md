@@ -8,10 +8,10 @@ documentação viva e automação de fluxo (pre-commit + CI) prontos.
 A meta é simples: **qualquer pessoa consegue clonar, instalar e rodar em
 minutos**, sem depender de "na minha máquina funciona".
 
-Este template nasceu do guia
-[`estrutura-projeto-dados-claude.docx`](estrutura-projeto-dados-claude.docx),
-incluído neste repositório como material de referência — vale a leitura para
-entender o *porquê* de cada prática.
+Vale a leitura do [Guia de boas práticas](docs/guia-boas-praticas.md) para
+entender o *porquê* de cada prática — o que é, por que importa e como fazer
+com uv/Ruff, com links para a documentação oficial de cada ferramenta
+citada.
 
 ## Como usar este template
 
@@ -75,7 +75,7 @@ Rodar um teste específico: `uv run pytest tests/test_transform.py -k nome_do_te
 ## IA como acelerador
 
 Este template foi desenhado para ser usado com o
-[Claude Code](https://claude.com/claude-code). O arquivo
+[Claude Code](https://docs.claude.com/en/docs/claude-code/overview). O arquivo
 [`CLAUDE.md`](CLAUDE.md) na raiz registra as convenções do projeto (uv,
 Ruff, pytest, padrão de commit, "nunca use `--no-verify`"), e
 [`docs/ia-como-acelerador.md`](docs/ia-como-acelerador.md) traz prompts

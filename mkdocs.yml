@@ -4,6 +4,7 @@ repo_name: Data-Project-Starter-Kit
 
 nav:
   - Início: index.md
+  - Guia de boas práticas: guia-boas-praticas.md
   - Estrutura do projeto: estrutura.md
   - Pipeline: pipeline.md
   - IA como acelerador: ia-como-acelerador.md
