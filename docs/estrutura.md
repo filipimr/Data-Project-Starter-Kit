@@ -9,6 +9,7 @@ Data-Project-Starter-Kit/
 ├── docs/                # este site (MkDocs Material + mkdocstrings)
 ├── data/                # dados de exemplo — input/ e output/, gitignored
 ├── .github/             # workflow de CI e template de Pull Request
+├── .agents/skills/       # skills de IA reutilizáveis (ver README dentro da pasta)
 ├── .python-version     # versão do Python travada (uv)
 ├── pyproject.toml      # dependências, Ruff, pytest, taskipy
 ├── uv.lock             # lock de dependências (reprodutibilidade)
@@ -33,6 +34,14 @@ Em produção, dados raramente ficam versionados no repositório — eles vêm d
 um data lake, S3, banco de dados, etc. `data/input/` e `data/output/` servem
 apenas para exemplos e testes locais e estão no `.gitignore` (os `.gitkeep`
 existem só para a pasta não sumir do Git quando estiver vazia).
+
+## Sobre `.agents/skills/`
+
+Biblioteca de skills reutilizáveis para agentes de IA — guias operacionais
+mais longos que um prompt (protocolo de uma ferramenta, padrões testados,
+armadilhas conhecidas). Veja `.agents/skills/README.md` para como criar uma
+nova a partir do template e como buscar skills prontas em
+[skillsmp.com](https://skillsmp.com/).
 
 ## Fluxo do pipeline
 

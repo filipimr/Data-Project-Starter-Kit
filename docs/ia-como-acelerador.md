@@ -53,6 +53,27 @@ diagnóstico, `CLAUDE.md` e migração incremental por PR.
 > Code cria o PR pelo `gh` e a CI roda sozinha; a revisão continua sendo
 > sua.
 
+## Biblioteca de skills (`.agents/skills/`)
+
+Além de prompts avulsos, este repositório guarda **skills** reutilizáveis
+em `.agents/skills/` — guias operacionais mais longos que ensinam o agente
+a executar bem uma tarefa recorrente (protocolo de uma ferramenta, padrões
+testados, armadilhas conhecidas). Veja `.agents/skills/README.md` na raiz
+do repositório para a estrutura completa e as boas práticas de uso; em
+resumo:
+
+- Para criar uma skill nova, copie `.agents/skills/_template/SKILL.md` e
+  preencha o frontmatter e as seções indicadas nos comentários do template.
+- Antes de escrever uma do zero, busque em
+  [skillsmp.com](https://skillsmp.com/) — é um marketplace de skills para
+  agentes de IA, muitas vezes já existe uma pronta para adaptar.
+- Skills baixadas de fontes externas são instruções que o agente vai
+  seguir — revise antes de usar, como revisaria código de terceiros.
+
+> «Crie uma skill em `.agents/skills/` a partir do template para
+> `<ferramenta/tarefa>`, documentando o workflow e as armadilhas que já
+> encontramos.»
+
 **Regra crítica:** nunca peça (e nunca aceite) `git commit --no-verify`. Se
 um hook do pre-commit ou a CI falhar, corrija o que foi apontado em vez de
 pular a verificação.

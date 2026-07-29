@@ -45,6 +45,7 @@ tests/               # testes automatizados (pytest), espelhando app/
 docs/                 # site MkDocs (gerado a partir das docstrings)
 data/                 # dados de exemplo — input/ e output/, gitignored
 .github/              # workflow de CI e template de Pull Request
+.agents/skills/        # skills de IA reutilizáveis (ver .agents/skills/README.md)
 ```
 
 Detalhes de cada pasta em [`docs/estrutura.md`](docs/estrutura.md).
@@ -82,6 +83,14 @@ Ruff, pytest, padrão de commit, "nunca use `--no-verify`"), e
 [`docs/ia-como-acelerador.md`](docs/ia-como-acelerador.md) traz prompts
 prontos para avançar em cada etapa. Regra de ouro: peça mudanças pequenas e
 revisáveis — uma prática por PR — e sempre revise o diff.
+
+`.agents/skills/` guarda skills reutilizáveis (guias operacionais mais
+longos que um prompt). Use o template em
+[`.agents/skills/_template/SKILL.md`](.agents/skills/_template/SKILL.md)
+para criar uma nova, ou busque uma pronta em
+[skillsmp.com](https://skillsmp.com/) antes de escrever do zero — veja
+[`.agents/skills/README.md`](.agents/skills/README.md) para as boas
+práticas.
 
 ## Checklist de adoção
 

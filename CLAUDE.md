@@ -12,6 +12,11 @@ Guia para o Claude Code (claude.ai/code) trabalhar neste repositório.
 - `app/pipeline/{extract,transform,load}.py` são placeholders
   (`raise NotImplementedError` + TODO). Não implemente por especulação —
   este repositório É o template, não um pipeline pronto.
+- `.agents/skills/` guarda skills reutilizáveis (guias operacionais para
+  tarefas recorrentes). Para criar uma, copie
+  `.agents/skills/_template/SKILL.md`; veja `.agents/skills/README.md`
+  para a convenção completa e para o link do
+  [skillsmp.com](https://skillsmp.com/) (marketplace de skills prontas).
 
 ## Comandos
 
