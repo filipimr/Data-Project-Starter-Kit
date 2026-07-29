@@ -1,0 +1,52 @@
+# IA como acelerador
+
+Este template foi feito para ser usado junto com o [Claude Code](https://claude.com/claude-code),
+a ferramenta de linha de comando da Anthropic. O arquivo `CLAUDE.md` na raiz
+do repositório já registra as convenções do projeto (uv, Ruff, pytest,
+padrão de commit, "nunca use `--no-verify`"), então o agente não precisa
+redescobrir isso a cada sessão.
+
+Abaixo, prompts prontos para avançar em cada parte ainda pendente do
+template (os `TODO` deixados em `app/pipeline/`) ou para adaptá-lo a um
+projeto real. Peça uma coisa de cada vez, em Plan Mode quando a mudança for
+grande, e revise o diff antes de aceitar.
+
+## Adaptar o pipeline a um caso real
+
+> «Substitua o `extract()` em `app/pipeline/extract.py` para ler arquivos
+> `.xlsx` de `data/input/` com pandas, mantendo a assinatura e a docstring.»
+
+> «Implemente `transform()` para concatenar a lista de DataFrames recebida e
+> habilite o teste em `tests/test_transform.py`, removendo o
+> `pytest.skip`.»
+
+> «Implemente `load()` para salvar o DataFrame em Excel na pasta de saída,
+> criando a pasta se não existir, e habilite o teste correspondente.»
+
+## Ambiente e dependências
+
+> «Adicione `<biblioteca>` como dependência com uv e rode `uv run pytest`
+> para confirmar que nada quebrou.»
+
+## Qualidade
+
+> «Rode `ruff check --fix .` e `ruff format .`, e me mostre o diff antes de
+> eu aceitar.»
+
+> «Todo bug corrigido vira um teste de regressão em pytest, no padrão
+> Arrange-Act-Assert.»
+
+## Documentação
+
+> «Adicione uma nova página em `docs/` documentando `<módulo novo>` via
+> mkdocstrings, e rode `mkdocs serve` para eu conferir.»
+
+## Fluxo e PRs
+
+> «Abra um PR com título e descrição resumindo estas mudanças» — o Claude
+> Code cria o PR pelo `gh` e a CI roda sozinha; a revisão continua sendo
+> sua.
+
+**Regra crítica:** nunca peça (e nunca aceite) `git commit --no-verify`. Se
+um hook do pre-commit ou a CI falhar, corrija o que foi apontado em vez de
+pular a verificação.
