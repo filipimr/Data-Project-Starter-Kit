@@ -14,6 +14,9 @@ nav:
 theme:
   name: material
   language: pt-BR
+  # font: false desliga o carregamento automático de Roboto/Roboto Mono do
+  # Material — a tipografia é 100% controlada por docs/stylesheets/extra.css.
+  font: false
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -28,6 +31,9 @@ theme:
   features:
     - navigation.tabs
     - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
   - search
