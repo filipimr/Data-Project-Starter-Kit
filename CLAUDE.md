@@ -49,6 +49,14 @@ Não "conserte" isso — é o estado de placeholder do template.
   propósito, não é um bug.
 - Ruff: `select = ["E","F","I","D","UP","B","S"]`, docstrings estilo
   Google. `tests/*` é isento de `D`/`S101`.
+- `docs/stylesheets/extra.css` aplica a identidade visual Selbetti (cores
+  Forest/Signal Orange/Selbetti Green, fonte Oswald nos títulos) por cima
+  do tema Material padrão — carregado via `extra_css` no `mkdocs.yml`, que
+  também tem `theme.font: false` de propósito (a tipografia é 100%
+  controlada por esse CSS, não pela config do Material). Os `!important`
+  nos admonitions são necessários para vencer a especificidade do CSS do
+  Material; não remova. Se o pedido for "deixar genérico"/"tirar a marca",
+  isso é decisão do usuário, não um bug a corrigir sozinho.
 
 ## Fluxo de Git
 
@@ -111,6 +119,10 @@ Não "conserte" isso — é o estado de placeholder do template.
 
 - Use o formatador do projeto: `uv run ruff format .`. Não discuta estilo
   além disso.
+- Isso cobre só Python. CSS/YAML/Markdown não têm formatador automatizado
+  configurado neste repo — reformatação nesses arquivos (ex.: pelo editor
+  do usuário) é cosmética e não precisa ser revertida nem replicada
+  manualmente em outros arquivos.
 
 ## Logging
 

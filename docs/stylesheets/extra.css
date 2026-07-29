@@ -20,20 +20,27 @@
   letter-spacing: 0.01em;
 }
 
-/* Customização de Paleta baseada na Identidade Visual Selbetti */
+/* Customização de Paleta */
 
 /* 1. Modo Claro (Light Mode) */
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #17392F;         /* Forest: Cor de fundo do cabeçalho */
-  --md-primary-fg-color--light: #235647;  /* Tons mais claros para hover no topo */
-  --md-primary-fg-color--dark: #0d211b;   /* Tons mais escuros */
-  --md-primary-bg-color: #ffffff;         /* Cor do texto do cabeçalho */
+  --md-primary-fg-color: #17392F;
+  /* Forest: Cor de fundo do cabeçalho */
+  --md-primary-fg-color--light: #235647;
+  /* Tons mais claros para hover no topo */
+  --md-primary-fg-color--dark: #0d211b;
+  /* Tons mais escuros */
+  --md-primary-bg-color: #ffffff;
+  /* Cor do texto do cabeçalho */
 
-  --md-accent-fg-color: #EF8943;          /* Signal Orange: Sublinhados de abas ativas, botões e foco */
+  --md-accent-fg-color: #EF8943;
+  /* Signal Orange: Sublinhados de abas ativas, botões e foco */
   --md-accent-fg-color--transparent: rgba(239, 137, 67, 0.15);
 
-  --md-typeset-a-color: #00754A;          /* Selbetti Green: Links padrões em modo claro */
-  --md-typeset-a-color--hover: #EF8943;   /* Signal Orange: Links em estado hover */
+  --md-typeset-a-color: #00754A;
+  /* Selbetti Green: Links padrões em modo claro */
+  --md-typeset-a-color--hover: #EF8943;
+  /* Signal Orange: Links em estado hover */
 
   /* Cor de fundo para seleção de texto */
   --md-typeset-color: #333333;
@@ -42,16 +49,20 @@
 
 /* 2. Modo Escuro (Dark Mode) */
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #17392F;         /* Forest: Fundo do cabeçalho também no escuro para consistência */
+  --md-primary-fg-color: #17392F;
+  /* Forest: Fundo do cabeçalho também no escuro para consistência */
   --md-primary-fg-color--light: #235647;
   --md-primary-fg-color--dark: #0d211b;
   --md-primary-bg-color: #ffffff;
 
-  --md-accent-fg-color: #EF8943;          /* Signal Orange */
+  --md-accent-fg-color: #EF8943;
+  /* Signal Orange */
   --md-accent-fg-color--transparent: rgba(239, 137, 67, 0.15);
 
-  --md-typeset-a-color: #80BAA5;          /* Calm Green: Excelente contraste para links sobre fundo escuro */
-  --md-typeset-a-color--hover: #EF8943;   /* Signal Orange: Hover nos links */
+  --md-typeset-a-color: #80BAA5;
+  /* Calm Green: Excelente contraste para links sobre fundo escuro */
+  --md-typeset-a-color--hover: #EF8943;
+  /* Signal Orange: Hover nos links */
 }
 
 /* 3. Transições Suaves para Elementos Interativos (Micro-animações) */
@@ -75,16 +86,16 @@
   border-left-color: #00754A !important;
 }
 
-.md-typeset .admonition.note > .admonition-title,
-.md-typeset .admonition.info > .admonition-title,
-.md-typeset .admonition.tip > .admonition-title {
+.md-typeset .admonition.note>.admonition-title,
+.md-typeset .admonition.info>.admonition-title,
+.md-typeset .admonition.tip>.admonition-title {
   background-color: rgba(0, 117, 74, 0.08) !important;
   color: #00754A !important;
 }
 
-.md-typeset .admonition.note > .admonition-title::before,
-.md-typeset .admonition.info > .admonition-title::before,
-.md-typeset .admonition.tip > .admonition-title::before {
+.md-typeset .admonition.note>.admonition-title::before,
+.md-typeset .admonition.info>.admonition-title::before,
+.md-typeset .admonition.tip>.admonition-title::before {
   color: #00754A !important;
 }
 
@@ -94,13 +105,13 @@
   border-left-color: #EF8943 !important;
 }
 
-.md-typeset .admonition.warning > .admonition-title,
-.md-typeset .admonition.caution > .admonition-title {
+.md-typeset .admonition.warning>.admonition-title,
+.md-typeset .admonition.caution>.admonition-title {
   background-color: rgba(239, 137, 67, 0.08) !important;
   color: #EF8943 !important;
 }
 
-.md-typeset .admonition.warning > .admonition-title::before,
-.md-typeset .admonition.caution > .admonition-title::before {
+.md-typeset .admonition.warning>.admonition-title::before,
+.md-typeset .admonition.caution>.admonition-title::before {
   color: #EF8943 !important;
 }
