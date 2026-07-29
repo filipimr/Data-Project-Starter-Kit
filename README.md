@@ -1,0 +1,106 @@
+# Data Project Starter Kit
+
+Template padronizado para começar projetos de **engenharia, ciência e
+análise de dados** — ETL, pipelines de ML, APIs, dashboards — já com
+ambiente reprodutível, código modular, testes, padrão de lint/formatação,
+documentação viva e automação de fluxo (pre-commit + CI) prontos.
+
+A meta é simples: **qualquer pessoa consegue clonar, instalar e rodar em
+minutos**, sem depender de "na minha máquina funciona".
+
+Este template nasceu do guia
+[`estrutura-projeto-dados-claude.docx`](estrutura-projeto-dados-claude.docx),
+incluído neste repositório como material de referência — vale a leitura para
+entender o *porquê* de cada prática.
+
+## Como usar este template
+
+1. No GitHub, clique em **"Use this template"** para criar seu próprio
+   repositório a partir deste (ou dê `git clone` se preferir só copiar
+   localmente).
+2. Ajuste `name`/`description` em `pyproject.toml` para o seu projeto.
+3. Instale as dependências:
+
+   ```bash
+   uv sync
+   uv run pre-commit install
+   ```
+
+4. Substitua os `TODO` em `app/pipeline/extract.py`, `transform.py` e
+   `load.py` pela lógica real do seu projeto, e remova os
+   `pytest.skip(...)` correspondentes em `tests/` conforme for
+   implementando.
+
+Veja [`docs/ia-como-acelerador.md`](docs/ia-como-acelerador.md) para prompts
+prontos de como usar o Claude Code em cada um desses passos.
+
+## Estrutura de pastas
+
+```text
+app/                 # todo o código do projeto vive aqui
+├── main.py          # ponto de entrada: orquestra o pipeline
+└── pipeline/         # extract / transform / load
+tests/               # testes automatizados (pytest), espelhando app/
+docs/                 # site MkDocs (gerado a partir das docstrings)
+data/                 # dados de exemplo — input/ e output/, gitignored
+.github/              # workflow de CI e template de Pull Request
+```
+
+Detalhes de cada pasta em [`docs/estrutura.md`](docs/estrutura.md).
+
+## Stack
+
+| Necessidade                  | Ferramenta                                   |
+| ----------------------------- | --------------------------------------------- |
+| Versão do Python + ambiente   | [uv](https://docs.astral.sh/uv/)              |
+| Testes                        | pytest (padrão Arrange-Act-Assert)            |
+| Lint + formatação             | [Ruff](https://docs.astral.sh/ruff/)          |
+| Atalhos de tarefa             | taskipy                                        |
+| Documentação                  | MkDocs Material + mkdocstrings                |
+| Hooks de pre-commit           | pre-commit (ruff-check, ruff-format, uv-lock) |
+| Integração contínua           | GitHub Actions                                |
+
+## Comandos do dia a dia
+
+```bash
+uv sync                  # instala tudo a partir do uv.lock
+uv run task format       # ruff check --fix . && ruff format .
+uv run task lint         # ruff check . && ruff format --check .
+uv run task test         # pytest -v
+uv run task docs         # mkdocs serve (site local em http://127.0.0.1:8000)
+```
+
+Rodar um teste específico: `uv run pytest tests/test_transform.py -k nome_do_teste`.
+
+## IA como acelerador
+
+Este template foi desenhado para ser usado com o
+[Claude Code](https://claude.com/claude-code). O arquivo
+[`CLAUDE.md`](CLAUDE.md) na raiz registra as convenções do projeto (uv,
+Ruff, pytest, padrão de commit, "nunca use `--no-verify`"), e
+[`docs/ia-como-acelerador.md`](docs/ia-como-acelerador.md) traz prompts
+prontos para avançar em cada etapa. Regra de ouro: peça mudanças pequenas e
+revisáveis — uma prática por PR — e sempre revise o diff.
+
+## Checklist de adoção
+
+Use como referência rápida do que este template já cobre:
+
+- [x] Versão do Python travada (`.python-version`, via uv)
+- [x] Ambiente e dependências reprodutíveis (`pyproject.toml` + `uv.lock`)
+- [x] Repositório Git com `.gitignore` e histórico de commits pequenos
+- [x] `CLAUDE.md` com as convenções do projeto
+- [x] Estrutura de pastas: `app/`, `tests/`, `docs/`, `data/`
+- [x] Pipeline modularizado (extract/transform/load) com docstrings e type hints
+- [x] Testes com pytest, padrão Arrange-Act-Assert
+- [x] Padrão de código com Ruff (lint + format)
+- [x] Atalhos de tarefa (taskipy): `task format`, `task lint`, `task test`
+- [x] Documentação em MkDocs (Material + mkdocstrings)
+- [x] Pre-commit hooks (ruff-check, ruff-format, uv-lock)
+- [x] CI no GitHub Actions (setup-uv + ruff + pytest)
+- [x] Template de Pull Request com checklist de revisão
+- [ ] Lógica real de `extract`/`transform`/`load` (os `TODO` são seus)
+
+## Licença
+
+[MIT](LICENSE).
