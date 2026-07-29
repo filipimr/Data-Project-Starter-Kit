@@ -6,9 +6,12 @@ Guia para o Claude Code (claude.ai/code) trabalhar neste repositório.
 
 - Template público para começar projetos de dados em Python (ETL, ML, API,
   dashboard) já com uv, Ruff, pytest, MkDocs, pre-commit e CI prontos.
-- Leia `docs/guia-boas-praticas.md` para entender o *porquê* de cada
-  convenção abaixo, com links para a documentação oficial de cada
-  ferramenta.
+- Leia `docs/guia/` (começando por `guia/index.md`) para entender o
+  *porquê* de cada convenção abaixo, com links para a documentação
+  oficial de cada ferramenta. O guia é dividido em uma página por bloco
+  (`fundacao.md`, `codigo.md`, `qualidade.md`, `documentacao.md`,
+  `colaboracao.md`, `retrofit.md`, `checklist.md`) — edite o bloco
+  certo, não recrie um arquivo único.
 - `app/pipeline/{extract,transform,load}.py` são placeholders
   (`raise NotImplementedError` + TODO). Não implemente por especulação —
   este repositório É o template, não um pipeline pronto.

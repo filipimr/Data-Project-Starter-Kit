@@ -13,9 +13,9 @@ projeto real. Peça uma coisa de cada vez, em Plan Mode quando a mudança for
 grande, e revise o diff antes de aceitar.
 
 Se em vez de partir deste template você estiver aplicando estas práticas a
-um repositório que já existe, veja a seção "Retrofit" no final do
-[Guia de boas práticas](guia-boas-praticas.md) — ela cobre o fluxo de
-diagnóstico, `CLAUDE.md` e migração incremental por PR.
+um repositório que já existe, veja [Adoção Incremental e Retrofit](guia/retrofit.md)
+no Guia de boas práticas — ela cobre o fluxo de diagnóstico, `CLAUDE.md` e
+migração incremental por PR.
 
 ## Adaptar o pipeline a um caso real
 

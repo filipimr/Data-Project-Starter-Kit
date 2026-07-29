@@ -8,7 +8,7 @@ documentação viva e automação de fluxo (pre-commit + CI) prontos.
 A meta é simples: **qualquer pessoa consegue clonar, instalar e rodar em
 minutos**, sem depender de "na minha máquina funciona".
 
-Vale a leitura do [Guia de boas práticas](docs/guia-boas-praticas.md) para
+Vale a leitura do [Guia de boas práticas](docs/guia/index.md) para
 entender o *porquê* de cada prática — o que é, por que importa e como fazer
 com uv/Ruff, com links para a documentação oficial de cada ferramenta
 citada.

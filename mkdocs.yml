@@ -1,13 +1,20 @@
-# TODO: defina repo_url (ex.: https://github.com/<usuario>/<repo>) ao publicar
-# no GitHub — sem ela, o Material não mostra o link/ícone do repositório.
 site_name: Data Project Starter Kit
 site_description: Template padronizado para projetos de engenharia, ciência e análise de dados.
-repo_name: Data-Project-Starter-Kit
+repo_name: Selbetti/Data-Project-Starter-Kit
+repo_url: https://github.com/Selbetti/Data-Project-Starter-Kit
 
 nav:
-  - Início: index.md
-  - Guia de boas práticas: guia-boas-praticas.md
+  - Introdução: index.md
   - Estrutura do projeto: estrutura.md
+  - Guia de boas práticas:
+      - Visão geral: guia/index.md
+      - 1. Fundação do ambiente: guia/fundacao.md
+      - 2. Código profissional: guia/codigo.md
+      - 3. Garantia de qualidade: guia/qualidade.md
+      - 4. Documentação viva: guia/documentacao.md
+      - 5. Fluxo e colaboração: guia/colaboracao.md
+      - Retrofit e Adoção: guia/retrofit.md
+      - Checklist: guia/checklist.md
   - Pipeline: pipeline.md
   - IA como acelerador: ia-como-acelerador.md
 
@@ -29,8 +36,19 @@ theme:
         icon: material/brightness-4
         name: Mudar para modo claro
   features:
-    - navigation.tabs
+    - navigation.path
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.indexes
+    - navigation.tracking
+    - content.code.annotate
+    - toc.follow
+    - navigation.footer
+    - navigation.top
     - content.code.copy
+    - content.tabs.link
 
 extra_css:
   - stylesheets/extra.css
@@ -53,3 +71,4 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight
   - pymdownx.details
+

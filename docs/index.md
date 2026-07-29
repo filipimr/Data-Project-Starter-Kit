@@ -11,7 +11,7 @@ o pipeline realmente faz.
 
 ## Por onde começar
 
-1. [Guia de boas práticas](guia-boas-praticas.md) — o porquê de cada
+1. [Guia de boas práticas](guia/index.md) — o porquê de cada
    prática (ambiente, testes, lint, docs, CI), com links para a
    documentação oficial de cada ferramenta.
 2. [Estrutura do projeto](estrutura.md) — o que existe em cada pasta e por quê.
