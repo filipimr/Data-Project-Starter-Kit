@@ -1,3 +1,5 @@
+# TODO: defina repo_url (ex.: https://github.com/<usuario>/<repo>) ao publicar
+# no GitHub — sem ela, o Material não mostra o link/ícone do repositório.
 site_name: Data Project Starter Kit
 site_description: Template padronizado para projetos de engenharia, ciência e análise de dados.
 repo_name: Data-Project-Starter-Kit

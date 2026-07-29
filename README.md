@@ -18,7 +18,8 @@ citada.
 1. No GitHub, clique em **"Use this template"** para criar seu próprio
    repositório a partir deste (ou dê `git clone` se preferir só copiar
    localmente).
-2. Ajuste `name`/`description` em `pyproject.toml` para o seu projeto.
+2. Ajuste `name`/`description` em `pyproject.toml` e o `repo_url` em
+   `mkdocs.yml` para o seu projeto.
 3. Instale as dependências:
 
    ```bash

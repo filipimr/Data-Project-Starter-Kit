@@ -5,9 +5,9 @@ análise de dados** já com boas práticas, automação, testes e documentação
 prontos — em vez de partir de um script solitário que só funciona "na
 máquina de quem escreveu".
 
-Este site é gerado automaticamente a partir do código e das docstrings do
-projeto (veja [Pipeline](pipeline.md)), então ele nunca fica desatualizado
-em relação ao que o código realmente faz.
+A página [Pipeline](pipeline.md) é gerada automaticamente a partir das
+docstrings do código, então ela nunca fica desatualizada em relação ao que
+o pipeline realmente faz.
 
 ## Por onde começar
 

@@ -18,4 +18,6 @@ def transform(dataframes: list[pd.DataFrame]) -> pd.DataFrame:
     """
     # TODO: substitua pela transformação real do seu projeto, por exemplo:
     #   return pd.concat(dataframes, ignore_index=True)
-    raise NotImplementedError("Implemente a transformação dos dados extraídos.")
+    raise NotImplementedError(
+        f"Implemente a transformação para os {len(dataframes)} DataFrame(s) recebidos."
+    )

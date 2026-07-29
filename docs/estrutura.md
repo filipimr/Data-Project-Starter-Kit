@@ -13,7 +13,11 @@ Data-Project-Starter-Kit/
 ├── pyproject.toml      # dependências, Ruff, pytest, taskipy
 ├── uv.lock             # lock de dependências (reprodutibilidade)
 ├── .pre-commit-config.yaml
-└── mkdocs.yml
+├── mkdocs.yml
+├── .gitignore
+├── README.md            # quickstart: como usar o template
+├── CLAUDE.md            # convenções do projeto para o Claude Code
+└── LICENSE
 ```
 
 ## A regra de ouro

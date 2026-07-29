@@ -71,8 +71,8 @@ Não "conserte" isso — é o estado de placeholder do template.
 
 - Preserve os comentários existentes. Não os remova ao refatorar — eles
   carregam intenção e proveniência.
-- Escreva o PORQUÊ, não o QUÊ. Não comente `// incrementa o contador`
-  acima de `i++`.
+- Escreva o PORQUÊ, não o QUÊ. Não comente `# incrementa o contador`
+  acima de `i += 1`.
 - Docstrings em funções públicas: intenção + um exemplo de uso.
 - Referencie números de issue / SHAs de commit quando uma linha existe por
   causa de um bug específico ou de uma restrição externa.
