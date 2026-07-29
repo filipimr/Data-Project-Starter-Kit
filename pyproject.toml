@@ -23,3 +23,25 @@ dev = [
     "ruff>=0.16.0",
     "taskipy>=1.14.1",
 ]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+# E=estilo  F=erros  I=imports  D=docstrings  UP=modernização  B=bugs  S=segurança
+select = ["E", "F", "I", "D", "UP", "B", "S"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "S101"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.taskipy.tasks]
+format = "ruff check --fix . && ruff format ."
+lint = "ruff check . && ruff format --check ."
+test = "pytest -v"
+docs = "mkdocs serve"
