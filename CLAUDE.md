@@ -1,92 +1,106 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code (claude.ai/code) working in this repository.
 
-## What this repository is
+## What this is
 
-This is **Data Project Starter Kit**, a public template repository for
-bootstrapping Python data engineering/science/analytics projects (ETL, ML
-pipelines, APIs, dashboards) with good practices already wired in:
-reproducible environment, modular code, tests, lint/format standards, docs
-generated from docstrings, pre-commit hooks, and CI.
-
-The template was built from `docs/guia-boas-praticas.md` (Portuguese) —
-that page explains the *why* behind every convention below, with links to
-each tool's official docs. The user-facing quickstart lives in `README.md`;
-this file is about how an agent should operate in this specific repo.
-
-`app/pipeline/{extract,transform,load}.py` are intentionally generic
-placeholders (`raise NotImplementedError` + TODO comments) — this repo is
-the template itself, not a finished pipeline. Don't "complete" them
-speculatively; they get implemented when someone uses this template for a
-real project.
+- Public template repo for bootstrapping Python data projects (ETL, ML,
+  API, dashboard) with uv, Ruff, pytest, MkDocs, pre-commit, and CI
+  pre-wired.
+- Read `docs/guia-boas-praticas.md` for the *why* behind every convention
+  here, with links to each tool's official docs.
+- `app/pipeline/{extract,transform,load}.py` are placeholders
+  (`raise NotImplementedError` + TODO). Don't implement them
+  speculatively — this repo IS the template, not a finished pipeline.
 
 ## Commands
 
 ```bash
-uv sync                  # install everything from uv.lock
-uv run task format       # ruff check --fix . && ruff format .
-uv run task lint         # ruff check . && ruff format --check .
-uv run task test         # pytest -v
-uv run task docs         # mkdocs serve (local docs site)
-uv run mkdocs build --strict   # verify docs build cleanly (used instead of serve in CI-like checks)
+uv sync                        # install deps
+uv run task format              # ruff check --fix . && ruff format .
+uv run task lint                # ruff check . && ruff format --check .
+uv run task test                # pytest -v
+uv run task docs                # mkdocs serve
+uv run mkdocs build --strict    # verify docs build clean
 uv run pre-commit run --all-files
 ```
 
 Single test: `uv run pytest tests/test_transform.py -k test_name`.
 
-There is no `uv run python app/main.py` smoke test that will pass yet —
-`main.py` calls the placeholder pipeline functions, which raise
-`NotImplementedError` by design until a concrete project fills them in.
+`uv run python app/main.py` raises `NotImplementedError` by design. Don't
+"fix" that — it's the template's placeholder state.
 
 ## Architecture
 
-```
-app/
-├── main.py            # orchestrates extract -> transform -> load, __main__ guard
-└── pipeline/
-    ├── extract.py     # placeholder: signature + Google docstring + TODO
-    ├── transform.py
-    └── load.py
-tests/                 # one test file per pipeline module, AAA-style,
-                        # each currently a pytest.skip("TODO: ...") stub
-docs/                   # MkDocs Material site; pipeline.md pulls docs
-                        # straight from the app/pipeline docstrings via
-                        # mkdocstrings — keep docstrings accurate, don't
-                        # hand-write duplicate API docs.
-                        # guia-boas-praticas.md is the full uv/Ruff-focused
-                        # practices guide (source of truth for "why");
-                        # ia-como-acelerador.md is Claude Code prompts.
-data/input/, data/output/   # gitignored except .gitkeep; example I/O only
-```
+- `app/` imports as a plain top-level package: `[tool.uv] package = false`
+  in `pyproject.toml`, no wheel build, pytest rootdir insertion resolves
+  `app.*` imports. Don't reintroduce `[build-system]`/hatchling without a
+  reason — it broke `uv sync` before (required a README at build time).
+- `docs/pipeline.md` renders live from `app/pipeline` docstrings via
+  mkdocstrings. Edit the docstring, not the doc page.
+- `mkdocs.yml`'s `!!python/name:` tag breaks pre-commit's `check-yaml`
+  safe loader — it's excluded from that hook on purpose, not a bug.
+- Ruff: `select = ["E","F","I","D","UP","B","S"]`, Google docstrings.
+  `tests/*` is exempt from `D`/`S101`.
 
-`app/`, `app/pipeline/`, and `tests/` all have `__init__.py` and the project
-runs with `[tool.uv] package = false` in `pyproject.toml` — the project is
-never installed as a wheel, `app` is imported as a plain top-level package
-via pytest's rootdir insertion. Don't add a `[build-system]`/hatchling
-section back in without a reason; it previously broke `uv sync` because it
-required a `README.md`-referencing build step this template doesn't need.
+## Git workflow
 
-Ruff is configured with `select = ["E","F","I","D","UP","B","S"]` and
-Google-style docstring convention; `tests/*` is exempted from `D` and `S101`
-(docstrings and `assert` usage) via `[tool.ruff.lint.per-file-ignores]`.
+- Never run `git commit --no-verify`. Fix what the hook flags instead.
+- One commit/PR per concern, in adoption order: environment → code →
+  tests → lint/tasks → docs → hooks/CI. No "fix everything" commits.
+- Filling in a placeholder: replace one `TODO` and un-skip its matching
+  test in the same change. Don't rewrite the whole pipeline at once.
 
-`mkdocs.yml` uses a `!!python/name:` tag for the Mermaid superfences
-formatter, which the pre-commit `check-yaml` hook's safe loader can't
-parse — that file is deliberately excluded from that hook
-(`.pre-commit-config.yaml`), not a bug to "fix".
+## Code style
 
-## Critical rules (carried over from the source guide)
+- Functions: 4-20 lines. Split if longer.
+- Files: under 500 lines. Split by responsibility.
+- One thing per function, one responsibility per module (SRP).
+- Names: specific and unique. Avoid `data`, `handler`, `Manager`.
+  Prefer names that return <5 grep hits in the codebase.
+- Types: explicit. No `any`, no `Dict`, no untyped functions.
+- No code duplication. Extract shared logic into a function/module.
+- Early returns over nested ifs. Max 2 levels of indentation.
+- Exception messages must include the offending value and expected shape.
 
-- **Never use `git commit --no-verify`.** If pre-commit or CI fails, fix
-  what it flags — AI agents reach for this bypass more readily than humans
-  do, and it defeats the whole point of the hooks.
-- **Every bug fix gets a new regression test** (pytest, Arrange-Act-Assert).
-- **Prefer small, atomic commits/PRs** — one concern per commit, on the
-  incremental-adoption order the guide lays out (environment → code →
-  tests → lint/tasks → docs → hooks/CI), not one giant "fix everything"
-  change.
-- When extending this template for a real project, keep the placeholder
-  pattern in mind: replace one `TODO` at a time and un-skip its matching
-  test in the same change, rather than rewriting the whole pipeline at
-  once.
+## Comments
+
+- Keep your own comments. Don't strip them on refactor — they carry
+  intent and provenance.
+- Write WHY, not WHAT. Skip `// increment counter` above `i++`.
+- Docstrings on public functions: intent + one usage example.
+- Reference issue numbers / commit SHAs when a line exists because
+  of a specific bug or upstream constraint.
+
+## Tests
+
+- Tests run with a single command: `uv run pytest -v` (or
+  `uv run task test`).
+- Every new function gets a test. Bug fixes get a regression test.
+- Mock external I/O (API, DB, filesystem) with named fake classes,
+  not inline stubs.
+- Tests must be F.I.R.S.T: fast, independent, repeatable,
+  self-validating, timely.
+
+## Dependencies
+
+- Inject dependencies through constructor/parameter, not global/import.
+- Wrap third-party libs behind a thin interface owned by this project.
+
+## Structure
+
+- `app/` holds all code, `tests/` mirrors it, `docs/` is MkDocs. If a
+  framework (Django, FastAPI, Next.js...) sits on top, follow its own
+  convention inside `app/`.
+- Prefer small focused modules over god files.
+- Predictable paths: controller/model/view, src/lib/test, etc.
+
+## Formatting
+
+- Use the project formatter: `uv run ruff format .`. Don't discuss style
+  beyond that.
+
+## Logging
+
+- Structured JSON when logging for debugging / observability.
+- Plain text only for user-facing CLI output.
