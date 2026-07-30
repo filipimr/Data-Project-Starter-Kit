@@ -116,3 +116,6 @@ Use como referência rápida do que este template já cobre:
 ## Licença
 
 [MIT](LICENSE).
+
+---
+Desenvolvido com carinho para a comunidade de engenharia de dados.
