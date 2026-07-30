@@ -61,13 +61,19 @@ Não "conserte" isso — é o estado de placeholder do template.
   Material; não remova. Se o pedido for "deixar genérico"/"tirar a marca",
   isso é decisão do usuário, não um bug a corrigir sozinho.
 
-## Fluxo de Git
+## Fluxo de Git e DevOps
 
-- Nunca use `git commit --no-verify`. Corrija o que o hook apontar.
-- Um commit/PR por assunto, na ordem de adoção: ambiente → código → testes
-  → lint/tasks → docs → hooks/CI. Nada de commit "arruma tudo".
-- Ao preencher um placeholder: troque um `TODO` por vez e habilite o teste
-  correspondente na mesma mudança. Não reescreva o pipeline inteiro de uma vez.
+- **Branch de Feature**: Nunca commite ou faça push diretamente na branch `main`. Crie uma branch de feature: `git checkout -b feature/nome-da-feature`.
+- **Mensagens de Commit**: Siga o padrão de Conventional Commits (ex: `feat:`, `fix:`, `docs:`, `ci:`, `test:`).
+- **Sem desvios**: Nunca use `git commit --no-verify`. Corrija o que o hook de pre-commit apontar.
+- **Criação de PR**: Abra um Pull Request utilizando o GitHub CLI (`gh`):
+  `$env:GITHUB_TOKEN=""; gh pr create --title "..." --body "..."`
+- **Validação de CI**: Aguarde as verificações do GitHub Actions (`ruff`, `pytest`) rodarem e passarem com sucesso.
+- **Merge via CLI**: Faça o merge do PR utilizando `--squash` e delete a branch com o comando:
+  `$env:GITHUB_TOKEN=""; gh pr merge --squash --delete-branch`
+- **Sincronização**: Retorne à branch `main` e puxe as atualizações. O comando `gh pr merge` acima já automatiza boa parte deste processo.
+- **Divisão**: Um commit/PR por assunto, na ordem de adoção: ambiente → código → testes → lint/tasks → docs → hooks/CI. Nada de commit "arruma tudo".
+- **Placeholder**: Ao preencher um placeholder: troque um `TODO` por vez e habilite o teste correspondente na mesma mudança. Não reescreva o pipeline inteiro de uma vez.
 
 ## Estilo de código
 

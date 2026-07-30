@@ -1,5 +1,7 @@
 # Data Project Starter Kit
 
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://filipimr.github.io/Data-Project-Starter-Kit/)
+
 Template padronizado para começar projetos de **engenharia, ciência e
 análise de dados** — ETL, pipelines de ML, APIs, dashboards — já com
 ambiente reprodutível, código modular, testes, padrão de lint/formatação,
