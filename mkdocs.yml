@@ -18,6 +18,7 @@ nav:
   - Pipeline: pipeline.md
   - IA como acelerador:
       - Guia de uso: ia-como-acelerador.md
+      - SDD na Prática: sdd.md
       - Template de PRD: prd-template.md
 
 theme:
