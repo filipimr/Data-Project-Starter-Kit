@@ -1,0 +1,117 @@
+/* Customização de Tipografia baseada na Identidade Visual Selbetti */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --md-text-font: Gotham, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --md-code-font: Consolas, "Courier New", Courier, monospace;
+}
+
+/* Títulos, Cabeçalhos, Menus e Links de Navegação Lateral */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6,
+.md-nav__title,
+.md-nav__link {
+  font-family: Oswald, sans-serif !important;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Customização de Paleta */
+
+/* 1. Modo Claro (Light Mode) */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #17392F;
+  /* Forest: Cor de fundo do cabeçalho */
+  --md-primary-fg-color--light: #235647;
+  /* Tons mais claros para hover no topo */
+  --md-primary-fg-color--dark: #0d211b;
+  /* Tons mais escuros */
+  --md-primary-bg-color: #ffffff;
+  /* Cor do texto do cabeçalho */
+
+  --md-accent-fg-color: #EF8943;
+  /* Signal Orange: Sublinhados de abas ativas, botões e foco */
+  --md-accent-fg-color--transparent: rgba(239, 137, 67, 0.15);
+
+  --md-typeset-a-color: #00754A;
+  /* Selbetti Green: Links padrões em modo claro */
+  --md-typeset-a-color--hover: #EF8943;
+  /* Signal Orange: Links em estado hover */
+
+  /* Cor de fundo para seleção de texto */
+  --md-typeset-color: #333333;
+  --md-typeset-kbd-color: #00754A;
+}
+
+/* 2. Modo Escuro (Dark Mode) */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #17392F;
+  /* Forest: Fundo do cabeçalho também no escuro para consistência */
+  --md-primary-fg-color--light: #235647;
+  --md-primary-fg-color--dark: #0d211b;
+  --md-primary-bg-color: #ffffff;
+
+  --md-accent-fg-color: #EF8943;
+  /* Signal Orange */
+  --md-accent-fg-color--transparent: rgba(239, 137, 67, 0.15);
+
+  --md-typeset-a-color: #80BAA5;
+  /* Calm Green: Excelente contraste para links sobre fundo escuro */
+  --md-typeset-a-color--hover: #EF8943;
+  /* Signal Orange: Hover nos links */
+}
+
+/* 3. Transições Suaves para Elementos Interativos (Micro-animações) */
+.md-typeset a,
+.md-nav__link,
+.md-search-result__link {
+  transition: color 0.2s ease, border-bottom-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Ajustes finos de bordas arredondadas e suavidade geral */
+.md-typeset pre code {
+  border-radius: 4px;
+}
+
+/* 4. Estilização Customizada de Blocos de Alerta (Admonitions) */
+
+/* Notas, Dicas e Informações Neutras -> Selbetti Green */
+.md-typeset .admonition.note,
+.md-typeset .admonition.info,
+.md-typeset .admonition.tip {
+  border-left-color: #00754A !important;
+}
+
+.md-typeset .admonition.note>.admonition-title,
+.md-typeset .admonition.info>.admonition-title,
+.md-typeset .admonition.tip>.admonition-title {
+  background-color: rgba(0, 117, 74, 0.08) !important;
+  color: #00754A !important;
+}
+
+.md-typeset .admonition.note>.admonition-title::before,
+.md-typeset .admonition.info>.admonition-title::before,
+.md-typeset .admonition.tip>.admonition-title::before {
+  color: #00754A !important;
+}
+
+/* Avisos, Cuidados e Alertas -> Signal Orange */
+.md-typeset .admonition.warning,
+.md-typeset .admonition.caution {
+  border-left-color: #EF8943 !important;
+}
+
+.md-typeset .admonition.warning>.admonition-title,
+.md-typeset .admonition.caution>.admonition-title {
+  background-color: rgba(239, 137, 67, 0.08) !important;
+  color: #EF8943 !important;
+}
+
+.md-typeset .admonition.warning>.admonition-title::before,
+.md-typeset .admonition.caution>.admonition-title::before {
+  color: #EF8943 !important;
+}
