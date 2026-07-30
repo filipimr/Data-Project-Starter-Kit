@@ -20,5 +20,14 @@ o pipeline realmente faz.
 4. [IA como acelerador](ia-como-acelerador.md) — como usar o Claude Code para
    avançar em cada etapa deste template.
 
-Para instruções de instalação e comandos do dia a dia, veja o `README.md` na
-raiz do repositório.
+## Inicializando seu próprio projeto
+
+Uma vez que você tenha compreendido a estrutura e os guias deste template, você pode limpar toda a documentação explicativa e configurar os metadados do seu próprio projeto executando o comando de bootstrap:
+
+```bash
+uv run task init
+```
+
+*Esse comando solicitará o nome, a descrição e o autor do seu projeto, atualizará automaticamente as configurações e apagará as páginas de guias explicativos deste repositório, deixando a estrutura limpa e pronta para uso imediato.*
+
+Para instruções de instalação e comandos do dia a dia, veja o `README.md` na raiz do repositório.

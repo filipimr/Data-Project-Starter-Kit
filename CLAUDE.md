@@ -25,6 +25,7 @@ Guia para o Claude Code (claude.ai/code) trabalhar neste repositório.
 
 ```bash
 uv sync                        # instala as dependências
+uv run task init                 # inicializa o projeto limpando as explicações
 uv run task format              # ruff check --fix . && ruff format .
 uv run task lint                 # ruff check . && ruff format --check .
 uv run task test                 # pytest -v
