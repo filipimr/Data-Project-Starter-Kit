@@ -20,14 +20,20 @@ citada.
 1. No GitHub, clique em **"Use this template"** para criar seu próprio
    repositório a partir deste (ou dê `git clone` se preferir só copiar
    localmente).
-2. Ajuste `name`/`description` em `pyproject.toml` e o `repo_url` em
-   `mkdocs.yml` para o seu projeto.
-3. Instale as dependências:
+2. Instale as dependências e os hooks do pre-commit:
 
    ```bash
    uv sync
    uv run pre-commit install
    ```
+
+3. Inicialize o seu projeto de dados executando o script de bootstrap interativo:
+
+   ```bash
+   uv run task init
+   ```
+
+   *Esse comando solicitará o nome, a descrição e o autor do seu projeto, atualizará automaticamente os arquivos `pyproject.toml` e `mkdocs.yml`, removerá todos os guias explicativos de documentação e deixará a estrutura limpa e pronta para uso (ready-to-go).*
 
 4. Configure sua IDE (VS Code, Antigravity, Cursor, PyCharm, etc.) para utilizar o interpretador Python da pasta `.venv` criada na raiz do projeto. Veja o detalhamento no [Passo 5 do Guia de boas práticas](docs/guia/fundacao.md#passo-5-integracao-e-configuracao-da-ide).
 5. Substitua os `TODO` em `app/pipeline/extract.py`, `transform.py` e
@@ -69,6 +75,7 @@ Detalhes de cada pasta em [`docs/estrutura.md`](docs/estrutura.md).
 
 ```bash
 uv sync                  # instala tudo a partir do uv.lock
+uv run task init         # inicializa o projeto limpando as explicações
 uv run task format       # ruff check --fix . && ruff format .
 uv run task lint         # ruff check . && ruff format --check .
 uv run task test         # pytest -v
@@ -107,7 +114,7 @@ Use como referência rápida do que este template já cobre:
 - [x] Pipeline modularizado (extract/transform/load) com docstrings e type hints
 - [x] Testes com pytest, padrão Arrange-Act-Assert
 - [x] Padrão de código com Ruff (lint + format)
-- [x] Atalhos de tarefa (taskipy): `task format`, `task lint`, `task test`
+- [x] Atalhos de tarefa (taskipy): `task format`, `task lint`, `task test`, `task init`
 - [x] Documentação em MkDocs (Material + mkdocstrings)
 - [x] Pre-commit hooks (ruff-check, ruff-format, uv-lock)
 - [x] CI no GitHub Actions (setup-uv + ruff + pytest)
