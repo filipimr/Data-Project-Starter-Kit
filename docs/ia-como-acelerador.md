@@ -74,6 +74,21 @@ resumo:
 > `<ferramenta/tarefa>`, documentando o workflow e as armadilhas que já
 > encontramos.»
 
+## Desenvolvimento Orientado a PRD (`PRD_TEMPLATE.md`)
+
+Para tarefas mais complexas, como a criação de novas APIs, novos pipelines ou refatorações estruturais, a melhor prática de mercado é utilizar o **Desenvolvimento Orientado a PRD**. Isso evita desvios de escopo, economiza tokens e garante que a IA implemente exatamente o que é desejado de primeira.
+
+O repositório disponibiliza um template otimizado para IAs na raiz (`PRD_TEMPLATE.md`) e também na documentação: [PRD_TEMPLATE.md](prd-template.md).
+
+### Como usar:
+1. **Crie a especificação:** Copie o template para um novo arquivo na pasta `docs/prd/` (ex: `docs/prd/minha-nova-api.md`).
+2. **Preencha os detalhes técnicos:** Seja o mais específico possível sobre:
+   - Quais arquivos devem ser modificados ou criados.
+   - O que está **fora de escopo** (essencial para que a IA não implemente recursos especulativos).
+   - Quais testes pytest e validações manuais devem passar.
+3. **Instrua a IA:** Peça ao agente de IA para ler e seguir a especificação:
+   > «Por favor, leia a especificação técnica em `docs/prd/minha-nova-api.md` e implemente os requisitos sugeridos. Crie um plano de implementação para eu validar antes de começar.»
+
 **Regra crítica:** nunca peça (e nunca aceite) `git commit --no-verify`. Se
 um hook do pre-commit ou a CI falhar, corrija o que foi apontado em vez de
 pular a verificação.

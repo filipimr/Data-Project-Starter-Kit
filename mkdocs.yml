@@ -16,7 +16,9 @@ nav:
       - Retrofit e Adoção: guia/retrofit.md
       - Checklist: guia/checklist.md
   - Pipeline: pipeline.md
-  - IA como acelerador: ia-como-acelerador.md
+  - IA como acelerador:
+      - Guia de uso: ia-como-acelerador.md
+      - Template de PRD: prd-template.md
 
 theme:
   name: material
