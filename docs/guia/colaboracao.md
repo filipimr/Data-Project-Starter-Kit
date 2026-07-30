@@ -72,12 +72,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v8
+      - uses: astral-sh/setup-uv@v9.0.0
         with:
-          python-version: "3.13"
+          python-version: "3.13.1"
       - run: uv sync
       - run: uv run ruff check .
-      - run: uv run pytest
+      - run: uv run pytest -v
 ```
 
 !!! tip "Com o Claude Code"
