@@ -1,7 +1,7 @@
 site_name: Data Project Starter Kit
 site_description: Template padronizado para projetos de engenharia, ciência e análise de dados.
-repo_name: Selbetti/Data-Project-Starter-Kit
-repo_url: https://github.com/Selbetti/Data-Project-Starter-Kit
+repo_name: filipimr/Data-Project-Starter-Kit
+repo_url: https://github.com/filipimr/Data-Project-Starter-Kit
 
 nav:
   - Introdução: index.md
