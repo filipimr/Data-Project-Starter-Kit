@@ -29,7 +29,8 @@ citada.
    uv run pre-commit install
    ```
 
-4. Substitua os `TODO` em `app/pipeline/extract.py`, `transform.py` e
+4. Configure sua IDE (VS Code, Antigravity, Cursor, PyCharm, etc.) para utilizar o interpretador Python da pasta `.venv` criada na raiz do projeto. Veja o detalhamento no [Passo 5 do Guia de boas práticas](docs/guia/fundacao.md#passo-5-integracao-e-configuracao-da-ide).
+5. Substitua os `TODO` em `app/pipeline/extract.py`, `transform.py` e
    `load.py` pela lógica real do seu projeto, e remova os
    `pytest.skip(...)` correspondentes em `tests/` conforme for
    implementando.

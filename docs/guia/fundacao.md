@@ -156,3 +156,39 @@ mora em `app/`. As pastas `tests/`, `docs/` e `data/` são universais.
     Peça: «monte o esqueleto app/ tests/ docs/ data/ com os `__init__.py`».
     Ele cria a estrutura inteira em segundos; revise o diff antes de
     aceitar.
+
+## Passo 5 — Integração e Configuração da IDE
+
+**O que é.** Configurar sua IDE (como VS Code, Antigravity, Cursor, PyCharm, etc.) para utilizar o interpretador Python correto localizado dentro do ambiente virtual criado pelo `uv` (`.venv`).
+
+**Por que importa.** Por padrão, as IDEs tentam usar o Python global instalado na máquina. Quando isso ocorre:
+1. A IDE exibe avisos falsos de erro (como `"Import could not be resolved"` em vermelho) sob as bibliotecas importadas (ex: `pandas`, `pytest`), pois ela não as encontra no Python global.
+2. O preenchimento automático (autocompletion), inspeção de tipos (type hints) e o recurso de "Ir para a Definição" (Go to Definition) deixam de funcionar para os pacotes do projeto.
+3. Ferramentas integradas como testes automáticos e formatadores rodam no ambiente errado ou falham.
+
+**Como fazer.**
+
+### 1. VS Code / Antigravity / Cursor
+Como essas IDEs compartilham a mesma base e extensões, o processo é idêntico:
+1. Abra a pasta raiz do projeto na IDE (`File` -> `Open Folder...`).
+2. Pressione `Ctrl + Shift + P` (no Windows/Linux) ou `Cmd + Shift + P` (no macOS) para abrir a **Paleta de Comandos**.
+3. Digite e selecione: **`Python: Select Interpreter`** (Selecionar Interpretador).
+4. A IDE listará os interpretadores encontrados. Escolha a opção recomendada que aponta para o ambiente virtual do projeto, geralmente exibindo algo como `'venv' (./.venv/Scripts/python.exe)` no Windows ou `'venv' (./.venv/bin/python)` no macOS/Linux.
+5. *(Opcional)* Para o Ruff funcionar automaticamente na IDE, instale a extensão oficial **Ruff** (da Astral Software). Configure o VS Code para formatar ao salvar adicionando a seguinte linha no seu `settings.json`:
+   ```json
+   "editor.formatOnSave": true,
+   "editor.defaultFormatter": "charliermarsh.ruff"
+   ```
+
+### 2. PyCharm
+1. Abra o projeto no PyCharm.
+2. Acesse as configurações da IDE (`Settings` no Windows ou `Preferences` no macOS).
+3. Navegue até **`Project: <nome-do-projeto>`** -> **`Python Interpreter`**.
+4. Clique em **`Add Interpreter`** (canto superior direito da tela de seleção) -> **`Add Local Interpreter...`**.
+5. Selecione **`Virtualenv Environment`** na barra lateral.
+6. Escolha a opção **`Existing`** (Ambiente Existente).
+7. No campo *Interpreter*, clique nos três pontos `...` e aponte para o executável do Python dentro da pasta `.venv` do projeto (ex: `.venv/Scripts/python.exe` no Windows ou `.venv/bin/python` no macOS/Linux).
+8. Clique em **`OK`** e aplique as configurações.
+
+!!! tip "Com o Claude Code"
+    Peça: «me explique como configurar o VS Code para usar o ambiente virtual do uv e ativar o Ruff no salvamento». O Claude Code pode até criar ou editar o arquivo de configurações do VS Code (`.vscode/settings.json`) na raiz do seu projeto se você preferir automatizar isso.

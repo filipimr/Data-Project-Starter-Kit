@@ -56,7 +56,9 @@
 
 ```python
 # Exemplo de assinatura esperada para o entrypoint
-def extract_billing_data(start_date: datetime.date, end_date: datetime.date) -> list[dict]:
+def extract_billing_data(
+    start_date: datetime.date, end_date: datetime.date
+) -> list[dict]:
     """Extrai os dados da API de faturamento e retorna uma lista de dicionários formatados.
 
     Args:
