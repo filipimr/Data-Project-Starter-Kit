@@ -496,6 +496,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#passo-5-integracao-e-configuracao-da-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — Integração e Configuração da IDE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 5 — Integração e Configuração da IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vs-code-antigravity-cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. VS Code / Antigravity / Cursor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pycharm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. PyCharm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -713,9 +752,31 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../ia-como-acelerador/" class="md-nav__link">
+    
+    
+      
         
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
@@ -729,7 +790,79 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IA como acelerador
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ia-como-acelerador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de uso
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prd-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template de PRD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -801,6 +934,45 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-5-integracao-e-configuracao-da-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — Integração e Configuração da IDE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 5 — Integração e Configuração da IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vs-code-antigravity-cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. VS Code / Antigravity / Cursor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pycharm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. PyCharm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1008,6 +1180,38 @@ dados pesados ou sensíveis).</p>
 <p>Peça: «monte o esqueleto app/ tests/ docs/ data/ com os <code>__init__.py</code>».
 Ele cria a estrutura inteira em segundos; revise o diff antes de
 aceitar.</p>
+</div>
+<h2 id="passo-5-integracao-e-configuracao-da-ide">Passo 5 — Integração e Configuração da IDE</h2>
+<p><strong>O que é.</strong> Configurar sua IDE (como VS Code, Antigravity, Cursor, PyCharm, etc.) para utilizar o interpretador Python correto localizado dentro do ambiente virtual criado pelo <code>uv</code> (<code>.venv</code>).</p>
+<p><strong>Por que importa.</strong> Por padrão, as IDEs tentam usar o Python global instalado na máquina. Quando isso ocorre:
+1. A IDE exibe avisos falsos de erro (como <code>"Import could not be resolved"</code> em vermelho) sob as bibliotecas importadas (ex: <code>pandas</code>, <code>pytest</code>), pois ela não as encontra no Python global.
+2. O preenchimento automático (autocompletion), inspeção de tipos (type hints) e o recurso de "Ir para a Definição" (Go to Definition) deixam de funcionar para os pacotes do projeto.
+3. Ferramentas integradas como testes automáticos e formatadores rodam no ambiente errado ou falham.</p>
+<p><strong>Como fazer.</strong></p>
+<h3 id="1-vs-code-antigravity-cursor">1. VS Code / Antigravity / Cursor</h3>
+<p>Como essas IDEs compartilham a mesma base e extensões, o processo é idêntico:
+1. Abra a pasta raiz do projeto na IDE (<code>File</code> -&gt; <code>Open Folder...</code>).
+2. Pressione <code>Ctrl + Shift + P</code> (no Windows/Linux) ou <code>Cmd + Shift + P</code> (no macOS) para abrir a <strong>Paleta de Comandos</strong>.
+3. Digite e selecione: <strong><code>Python: Select Interpreter</code></strong> (Selecionar Interpretador).
+4. A IDE listará os interpretadores encontrados. Escolha a opção recomendada que aponta para o ambiente virtual do projeto, geralmente exibindo algo como <code>'venv' (./.venv/Scripts/python.exe)</code> no Windows ou <code>'venv' (./.venv/bin/python)</code> no macOS/Linux.
+5. <em>(Opcional)</em> Para o Ruff funcionar automaticamente na IDE, instale a extensão oficial <strong>Ruff</strong> (da Astral Software). Configure o VS Code para formatar ao salvar adicionando a seguinte linha no seu <code>settings.json</code>:
+   <div class="highlight"><pre><span></span><code><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;charliermarsh.ruff&quot;</span>
+</code></pre></div></p>
+<h3 id="2-pycharm">2. PyCharm</h3>
+<ol>
+<li>Abra o projeto no PyCharm.</li>
+<li>Acesse as configurações da IDE (<code>Settings</code> no Windows ou <code>Preferences</code> no macOS).</li>
+<li>Navegue até <strong><code>Project: &lt;nome-do-projeto&gt;</code></strong> -&gt; <strong><code>Python Interpreter</code></strong>.</li>
+<li>Clique em <strong><code>Add Interpreter</code></strong> (canto superior direito da tela de seleção) -&gt; <strong><code>Add Local Interpreter...</code></strong>.</li>
+<li>Selecione <strong><code>Virtualenv Environment</code></strong> na barra lateral.</li>
+<li>Escolha a opção <strong><code>Existing</code></strong> (Ambiente Existente).</li>
+<li>No campo <em>Interpreter</em>, clique nos três pontos <code>...</code> e aponte para o executável do Python dentro da pasta <code>.venv</code> do projeto (ex: <code>.venv/Scripts/python.exe</code> no Windows ou <code>.venv/bin/python</code> no macOS/Linux).</li>
+<li>Clique em <strong><code>OK</code></strong> e aplique as configurações.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Com o Claude Code</p>
+<p>Peça: «me explique como configurar o VS Code para usar o ambiente virtual do uv e ativar o Ruff no salvamento». O Claude Code pode até criar ou editar o arquivo de configurações do VS Code (<code>.vscode/settings.json</code>) na raiz do seu projeto se você preferir automatizar isso.</p>
 </div>
 
 
