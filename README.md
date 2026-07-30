@@ -118,4 +118,4 @@ Use como referência rápida do que este template já cobre:
 [MIT](LICENSE).
 
 ---
-Desenvolvido com carinho para a comunidade de engenharia de dados.
+Desenvolvido para a comunidade de engenharia de dados.
