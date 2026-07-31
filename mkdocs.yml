@@ -23,6 +23,7 @@ nav:
 
 theme:
   name: material
+  logo: assets/pattern.png
   language: pt-BR
   # font: false desliga o carregamento automático de Roboto/Roboto Mono do
   # Material — a tipografia é 100% controlada por docs/stylesheets/extra.css.
