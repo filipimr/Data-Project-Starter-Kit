@@ -5,6 +5,9 @@ on: [push, pull_request]
 permissions:
   contents: write
 
+env:
+  NO_MKDOCS_2_WARNING: "1"
+
 jobs:
   test:
     runs-on: ubuntu-latest
