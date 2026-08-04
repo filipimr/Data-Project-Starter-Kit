@@ -23,7 +23,7 @@ Não há certo — depende dos padrões do time. Centralizando, crie pastas como
 
 ## Retrofit: aplicando em projetos que já existem
 
-Raramente você começa do zero. O cenário mais comum é herdar um repositório que já roda mas não tem estrutura: sem testes, sem padrão, com dependências soltas. O [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) foi feito justamente para esse trabalho de arqueologia e reforma incremental.
+Raramente começamos um projeto do zero. O cenário mais comum é herdar um repositório legado que já está em execução, mas sem estrutura definida: ausência de testes automatizados, falta de padrões de estilo e dependências não declaradas formalmente. O [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) é ideal para esse trabalho de auditoria e modernização incremental.
 
 1. **Diagnóstico (em Plan Mode)** — abra o terminal na raiz do repositório, rode `claude`, entre em Plan Mode e peça:
    > «Audite este repositório contra o checklist deste guia. Não altere nada ainda — só me diga o que falta e proponha uma ordem de implementação.»
