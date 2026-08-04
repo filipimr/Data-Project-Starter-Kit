@@ -20,10 +20,9 @@
   letter-spacing: 0.01em;
 }
 
-/* Customização de Paleta */
-
 /* 1. Modo Claro (Light Mode) */
-[data-md-color-scheme="default"] {
+[data-md-color-scheme="default"],
+[data-md-color-scheme="default"][data-md-color-primary] {
   --md-primary-fg-color: #17392F;
   /* Forest: Cor de fundo do cabeçalho */
   --md-primary-fg-color--light: #235647;
@@ -45,10 +44,14 @@
   /* Cor de fundo para seleção de texto */
   --md-typeset-color: #333333;
   --md-typeset-kbd-color: #00754A;
+
+  /* Cor de destaque de termos na busca */
+  --md-typeset-mark-color: rgba(0, 117, 74, 0.2);
 }
 
 /* 2. Modo Escuro (Dark Mode) */
-[data-md-color-scheme="slate"] {
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="slate"][data-md-color-primary] {
   --md-primary-fg-color: #17392F;
   /* Forest: Fundo do cabeçalho também no escuro para consistência */
   --md-primary-fg-color--light: #235647;
@@ -63,6 +66,19 @@
   /* Calm Green: Excelente contraste para links sobre fundo escuro */
   --md-typeset-a-color--hover: #EF8943;
   /* Signal Orange: Hover nos links */
+
+  /* Cor de destaque de termos na busca */
+  --md-typeset-mark-color: rgba(239, 137, 67, 0.35);
+}
+
+/* Ajustes globais de usabilidade para links ativos e focos na navegação lateral */
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active code {
+  color: var(--md-typeset-a-color) !important;
+}
+
+.md-nav__link--active:hover {
+  color: var(--md-typeset-a-color--hover) !important;
 }
 
 /* 3. Transições Suaves para Elementos Interativos (Micro-animações) */
