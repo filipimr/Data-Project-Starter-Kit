@@ -51,17 +51,11 @@ repos:
 
 ## Passo 13 — Integração Contínua (CI) com GitHub Actions
 
-**O que é.** Enquanto o pre-commit roda na sua máquina, a
-[CI](https://docs.github.com/en/actions) roda no servidor. A cada push ou
-Pull Request, o GitHub sobe uma máquina limpa, instala tudo do zero e roda
-seus testes.
+**O que é.** Enquanto as verificações do pre-commit rodam localmente na sua máquina de desenvolvimento, a [CI](https://docs.github.com/en/actions) (Integração Contínua) é executada em um servidor remoto a cada alteração. A cada push ou Pull Request, o GitHub Actions inicia um ambiente isolado e limpo, instala as dependências do zero e executa a suíte de testes e linters.
 
-**Por que importa.** É a garantia de que o projeto roda numa máquina que
-não é a sua — expondo qualquer dependência esquecida. Regra de ouro: a
-cada bug corrigido, cria-se um teste unitário para ele.
+**Por que importa.** É a garantia definitiva de que o projeto funciona de forma autônoma e reprodutível em um ambiente neutro, expondo dependências esquecidas ou bugs silenciosos. Regra de ouro: a cada bug corrigido, cria-se um teste correspondente.
 
-**Como fazer.** Com [`astral-sh/setup-uv`](https://github.com/astral-sh/setup-uv),
-a CI fica rápida: instala Python e dependências e cacheia tudo.
+**Como fazer.** Com o uso da action [`astral-sh/setup-uv`](https://github.com/astral-sh/setup-uv), o workflow executa rapidamente, automatizando a instalação do Python, das dependências e gerenciando o cache.
 
 ```yaml
 # .github/workflows/ci.yaml
@@ -71,7 +65,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v9.0.0
         with:
           python-version: "3.13.1"
@@ -81,9 +75,7 @@ jobs:
 ```
 
 !!! tip "Com o Claude Code"
-    Peça: «crie o workflow de CI no GitHub Actions com setup-uv, uv sync,
-    ruff check e pytest». Ele escreve o YAML; você valida abrindo um PR de
-    teste e vendo o check rodar verde.
+    Peça: «crie o workflow de CI no GitHub Actions com setup-uv, uv sync, ruff check e pytest». Ele monta o arquivo YAML correto; você valida abrindo um Pull Request e verificando a execução do pipeline.
 
 ## Passo 14 — Pull Requests e revisão de código
 
