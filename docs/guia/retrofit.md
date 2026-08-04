@@ -11,8 +11,8 @@ A tentação depois de ver tudo isso é querer implantar as 14 práticas no prim
 1. **[Fundação do ambiente](fundacao.md)** (Passos 1–4) — elimina metade dos problemas de "na minha máquina funciona".
 2. **[Código profissional](codigo.md)** (Passos 5–7) — faça isso conforme o código e a complexidade do projeto crescem.
 3. **[Garantia de qualidade](qualidade.md)** (Passo 8) — adicione testes para a lógica principal e, a cada bug, um teste novo de regressão.
-4. **Padronize o estilo** (Passos 9–10) — introduza Ruff e tarefas automatizadas quando mais de uma pessoa toca o código.
-5. **[Documente](documentacao.md) de verdade** (Passo 11) — faça isso quando outras áreas ou desenvolvedores precisam entender o projeto.
+4. **[Padronize o estilo](qualidade.md#passo-9-padroes-de-codigo-com-ruff)** (Passos 9–10) — introduza Ruff e tarefas automatizadas quando mais de uma pessoa toca o código.
+5. **[Documente de verdade](documentacao.md)** (Passo 11) — faça isso quando outras áreas ou desenvolvedores precisam entender o projeto.
 6. **[Automatize o fluxo](colaboracao.md)** (Passos 12–14) — ideal quando o time cresce e a colaboração exige garantias automáticas de qualidade.
 
 ### Monorepo vs. multirepo
