@@ -32,11 +32,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: green
+      accent: orange
       toggle:
         icon: material/brightness-7
         name: Mudar para modo escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: green
+      accent: orange
       toggle:
         icon: material/brightness-4
         name: Mudar para modo claro
