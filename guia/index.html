@@ -919,7 +919,14 @@ mesma estrutura: o que é, por que importa, como fazer.</p>
 <li><strong><a href="colaboracao/">Fluxo e colaboração</a></strong> — hooks, integração contínua e revisão de código.</li>
 </ol>
 <p>Ao longo do texto, os quadros "Com o Claude Code" mostram, para cada prática, como delegar aquilo ao <a href="https://docs.claude.com/en/docs/claude-code/overview">Claude Code</a>, a ferramenta de linha de comando da Anthropic.</p>
-<p>Este template já usa <strong><a href="https://docs.astral.sh/uv/">uv</a></strong> (ambiente e dependências) e <strong><a href="https://docs.astral.sh/ruff/">Ruff</a></strong> (lint e formatação) — as duas ferramentas modernas da Astral que consolidam boa parte do ferramental clássico do ecossistema Python (pyenv, pip, venv, Poetry, black, isort, flake8, pydocstyle, bandit). Este guia foca nelas; se você herdar um projeto legado com o stack clássico, veja a seção de <a href="retrofit/">Retrofit</a>.</p>
+<p>Este template já usa <strong><a href="https://docs.astral.sh/uv/">uv</a></strong> (ambiente e dependências) e <strong><a href="https://docs.astral.sh/ruff/">Ruff</a></strong> (lint e formatação) — as duas ferramentas modernas da Astral que consolidam boa parte do ferramental clássico do ecossistema Python (pyenv, pip, venv, Poetry, black, isort, flake8, pydocstyle, bandit).</p>
+<p>Além disso, o kit integra as seguintes ferramentas:
+- <strong><a href="https://docs.pytest.org/">pytest</a></strong> para a suíte de testes (padrão Arrange-Act-Assert)
+- <strong><a href="https://github.com/taskipy/taskipy">taskipy</a></strong> para atalhos de tarefas
+- <strong><a href="https://squidfunk.github.io/mkdocs-material/">MkDocs Material</a></strong> + <strong><a href="https://mkdocstrings.github.io/">mkdocstrings</a></strong> para a documentação viva
+- <strong><a href="https://pre-commit.com/">pre-commit</a></strong> para hooks de Git (regras locais)
+- <strong><a href="https://docs.github.com/en/actions">GitHub Actions</a></strong> para Integração Contínua (CI)</p>
+<p>Este guia foca nelas; se você herdar um projeto legado com o stack clássico, veja a seção de <a href="retrofit/">Retrofit</a>.</p>
 <p>Após finalizar o guia, consulte o <a href="checklist/">Checklist final</a> para validação rápida.</p>
 
 

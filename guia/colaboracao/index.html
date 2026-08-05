@@ -1017,7 +1017,7 @@ que humanos. Deixe explícito no <code>CLAUDE.md</code> — «nunca use
 <code>git commit --no-verify</code>; corrija o que o hook apontar».</p>
 </div>
 <h2 id="passo-13-integracao-continua-ci-com-github-actions">Passo 13 — Integração Contínua (CI) com GitHub Actions</h2>
-<p><strong>O que é.</strong> Enquanto as verificações do pre-commit rodam localmente na sua máquina de desenvolvimento, a <a href="https://docs.github.com/en/actions">CI</a> (Integração Contínua) é executada em um servidor remoto a cada alteração. A cada push ou Pull Request, o GitHub Actions inicia um ambiente isolado e limpo, instala as dependências do zero e executa a suíte de testes e linters.</p>
+<p><strong>O que é.</strong> Enquanto as verificações do pre-commit rodam localmente na sua máquina de desenvolvimento, a <a href="https://docs.github.com/en/actions">CI</a> (Integração Contínua) é executada em um servidor remoto a cada alteração. A cada push ou Pull Request, o <a href="https://docs.github.com/en/actions">GitHub Actions</a> inicia um ambiente isolado e limpo, instala as dependências do zero e executa a suíte de testes e linters.</p>
 <p><strong>Por que importa.</strong> É a garantia definitiva de que o projeto funciona de forma autônoma e reprodutível em um ambiente neutro, expondo dependências esquecidas ou bugs silenciosos. Regra de ouro: a cada bug corrigido, cria-se um teste correspondente.</p>
 <p><strong>Como fazer.</strong> Com o uso da action <a href="https://github.com/astral-sh/setup-uv"><code>astral-sh/setup-uv</code></a>, o workflow executa rapidamente, automatizando a instalação do Python, das dependências e gerenciando o cache.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/ci.yaml</span>
