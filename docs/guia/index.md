@@ -43,6 +43,15 @@ A ordem dos blocos:
 
 Ao longo do texto, os quadros "Com o Claude Code" mostram, para cada prática, como delegar aquilo ao [Claude Code](https://docs.claude.com/en/docs/claude-code/overview), a ferramenta de linha de comando da Anthropic.
 
-Este template já usa **[uv](https://docs.astral.sh/uv/)** (ambiente e dependências) e **[Ruff](https://docs.astral.sh/ruff/)** (lint e formatação) — as duas ferramentas modernas da Astral que consolidam boa parte do ferramental clássico do ecossistema Python (pyenv, pip, venv, Poetry, black, isort, flake8, pydocstyle, bandit). Este guia foca nelas; se você herdar um projeto legado com o stack clássico, veja a seção de [Retrofit](retrofit.md).
+Este template já usa **[uv](https://docs.astral.sh/uv/)** (ambiente e dependências) e **[Ruff](https://docs.astral.sh/ruff/)** (lint e formatação) — as duas ferramentas modernas da Astral que consolidam boa parte do ferramental clássico do ecossistema Python (pyenv, pip, venv, Poetry, black, isort, flake8, pydocstyle, bandit).
+
+Além disso, o kit integra as seguintes ferramentas:
+- **[pytest](https://docs.pytest.org/)** para a suíte de testes (padrão Arrange-Act-Assert)
+- **[taskipy](https://github.com/taskipy/taskipy)** para atalhos de tarefas
+- **[MkDocs Material](https://squidfunk.github.io/mkdocs-material/)** + **[mkdocstrings](https://mkdocstrings.github.io/)** para a documentação viva
+- **[pre-commit](https://pre-commit.com/)** para hooks de Git (regras locais)
+- **[GitHub Actions](https://docs.github.com/en/actions)** para Integração Contínua (CI)
+
+Este guia foca nelas; se você herdar um projeto legado com o stack clássico, veja a seção de [Retrofit](retrofit.md).
 
 Após finalizar o guia, consulte o [Checklist final](checklist.md) para validação rápida.

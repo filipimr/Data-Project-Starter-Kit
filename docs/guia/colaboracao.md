@@ -51,7 +51,7 @@ repos:
 
 ## Passo 13 — Integração Contínua (CI) com GitHub Actions
 
-**O que é.** Enquanto as verificações do pre-commit rodam localmente na sua máquina de desenvolvimento, a [CI](https://docs.github.com/en/actions) (Integração Contínua) é executada em um servidor remoto a cada alteração. A cada push ou Pull Request, o GitHub Actions inicia um ambiente isolado e limpo, instala as dependências do zero e executa a suíte de testes e linters.
+**O que é.** Enquanto as verificações do pre-commit rodam localmente na sua máquina de desenvolvimento, a [CI](https://docs.github.com/en/actions) (Integração Contínua) é executada em um servidor remoto a cada alteração. A cada push ou Pull Request, o [GitHub Actions](https://docs.github.com/en/actions) inicia um ambiente isolado e limpo, instala as dependências do zero e executa a suíte de testes e linters.
 
 **Por que importa.** É a garantia definitiva de que o projeto funciona de forma autônoma e reprodutível em um ambiente neutro, expondo dependências esquecidas ou bugs silenciosos. Regra de ouro: a cada bug corrigido, cria-se um teste correspondente.
 

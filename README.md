@@ -64,12 +64,12 @@ Detalhes de cada pasta em [`docs/estrutura.md`](docs/estrutura.md).
 | Necessidade                  | Ferramenta                                   |
 | ----------------------------- | --------------------------------------------- |
 | Versão do Python + ambiente   | [uv](https://docs.astral.sh/uv/)              |
-| Testes                        | pytest (padrão Arrange-Act-Assert)            |
+| Testes                        | [pytest](https://docs.pytest.org/) (padrão Arrange-Act-Assert) |
 | Lint + formatação             | [Ruff](https://docs.astral.sh/ruff/)          |
-| Atalhos de tarefa             | taskipy                                        |
-| Documentação                  | MkDocs Material + mkdocstrings                |
-| Hooks de pre-commit           | pre-commit (ruff-check, ruff-format, uv-lock) |
-| Integração contínua           | GitHub Actions                                |
+| Atalhos de tarefa             | [taskipy](https://github.com/taskipy/taskipy) |
+| Documentação                  | [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) + [mkdocstrings](https://mkdocstrings.github.io/) |
+| Hooks de pre-commit           | [pre-commit](https://pre-commit.com/) (ruff-check, ruff-format, uv-lock) |
+| Integração contínua           | [GitHub Actions](https://docs.github.com/en/actions) |
 
 ## Comandos do dia a dia
 
