@@ -67,7 +67,7 @@ Não "conserte" isso — é o estado de placeholder do template.
 - **Branch de Feature**: Nunca commite ou faça push diretamente na branch `main`. Crie uma branch de feature: `git checkout -b feature/nome-da-feature`.
 - **Mensagens de Commit**: Siga o padrão de Conventional Commits (ex: `feat:`, `fix:`, `docs:`, `ci:`, `test:`).
 - **Sem desvios**: Nunca use `git commit --no-verify`. Corrija o que o hook de pre-commit apontar.
-- **Criação de PR**: Abra um Pull Request utilizando o GitHub CLI (`gh`):
+- **Criação de PR**: Os textos do PR (título e descrição) devem ser em português do Brasil (pt-br) para manter o padrão. Abra o Pull Request utilizando o GitHub CLI (`gh`):
   `$env:GITHUB_TOKEN=""; gh pr create --title "..." --body "..."`
 - **Validação de CI**: Aguarde as verificações do GitHub Actions (`ruff`, `pytest`) rodarem e passarem com sucesso.
 - **Merge via CLI**: Faça o merge do PR utilizando `--squash` e delete a branch com o comando:
